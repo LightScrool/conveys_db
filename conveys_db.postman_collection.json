@@ -1,0 +1,304 @@
+{
+	"info": {
+		"_postman_id": "a06dba51-5543-44ed-a52f-d91c1886f324",
+		"name": "conveys_db",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27177638"
+	},
+	"item": [
+		{
+			"name": "Health check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{api_path}}/health-check/ping",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"health-check",
+						"ping"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Surveys",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Survey",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Опрос 1\",\n    \"description\": \"Первый тестовый опрос\",\n    \"questions\": [\n        {\n            \"text\": \"Вопрос #1\",\n            \"is_necessary\": true\n        },\n        {\n            \"text\": \"Вопрос #2\",\n            \"is_necessary\": false\n        },\n        {\n            \"text\": \"Вопрос #3\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get One Survey",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys/1",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Close Survey",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys/1/close",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys",
+						"1",
+						"close"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Open Survey",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys/1/open",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys",
+						"1",
+						"open"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Response",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}12",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"1\": \"Отвечаю\",\n    \"2\": \"Тоже отвечаю\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys/1/response",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys",
+						"1",
+						"response"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Survey",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-yandex-puid",
+						"value": "{{yandex_puid}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_path}}/surveys/1",
+					"host": [
+						"{{api_path}}"
+					],
+					"path": [
+						"surveys",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_path",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		},
+		{
+			"key": "yandex_puid",
+			"value": "123",
+			"type": "string"
+		}
+	]
+}
